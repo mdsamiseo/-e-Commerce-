@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUXE THREADS — Premium Dresses & T-Shirts | Fashion E-Commerce</title>
+    <meta name="description" content="Discover premium dresses and t-shirts at LUXE THREADS. Shop elegant cocktail dresses, evening wear, and designer t-shirts with free shipping on orders over $50.">
+    <meta name="keywords" content="dresses, t-shirts, fashion, e-commerce, premium clothing, designer wear">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 3D Canvas Background -->
+    <canvas id="three-canvas"></canvas>
+
+    <!-- Loader -->
+    <div id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">LUXE</div>
+            <div class="loader-bar"><div class="loader-progress"></div></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-icon">✦</span>
+                <span class="logo-text">LUXE<span class="logo-accent">THREADS</span></span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#dresses" class="nav-link">Dresses</a></li>
+                <li><a href="#tshirts" class="nav-link">T-Shirts</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-btn search-btn" id="search-toggle" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                </button>
+                <button class="nav-btn cart-btn" id="cart-toggle" aria-label="Shopping Cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <button class="nav-btn menu-btn" id="menu-toggle" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="search-overlay">
+        <div class="search-container">
+            <input type="text" class="search-input" id="search-input" placeholder="Search for dresses, t-shirts...">
+            <button class="search-close" id="search-close">✕</button>
+        </div>
+        <div class="search-results" id="search-results"></div>
+    </div>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <aside class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Shopping Bag</h3>
+            <button class="cart-close" id="cart-close">✕</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <div class="cart-empty">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                <p>Your bag is empty</p>
+            </div>
+        </div>
+        <div class="cart-footer" id="cart-footer" style="display:none">
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cart-total-price">$0.00</span>
+            </div>
+            <button class="btn-checkout" id="btn-checkout">Checkout</button>
+            <p class="cart-shipping">Free shipping on orders over $50</p>
+        </div>
+    </aside>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <div class="hero-badge">✦ NEW COLLECTION 2026</div>
+            <h1 class="hero-title">
+                <span class="hero-line">Elevate Your</span>
+                <span class="hero-line gradient-text">Style Game</span>
+            </h1>
+            <p class="hero-subtitle">Discover premium dresses and designer t-shirts crafted for those who dare to stand out. Luxury fashion meets modern comfort.</p>
+            <div class="hero-cta">
+                <a href="#dresses" class="btn btn-primary">Shop Dresses</a>
+                <a href="#tshirts" class="btn btn-outline">Explore T-Shirts</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" data-count="500">0</span><span class="stat-suffix">+</span>
+                    <span class="stat-label">Products</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-count="50">0</span><span class="stat-suffix">K+</span>
+                    <span class="stat-label">Happy Customers</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-count="4.9">0</span><span class="stat-suffix">★</span>
+                    <span class="stat-label">Rating</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="hero-3d-container" id="hero-3d"></div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <section class="marquee-section">
+        <div class="marquee-track">
+            <div class="marquee-content">
+                <span>★ FREE SHIPPING</span>
+                <span>★ PREMIUM QUALITY</span>
+                <span>★ 30-DAY RETURNS</span>
+                <span>★ SUSTAINABLE FASHION</span>
+                <span>★ EXCLUSIVE DESIGNS</span>
+                <span>★ FREE SHIPPING</span>
+                <span>★ PREMIUM QUALITY</span>
+                <span>★ 30-DAY RETURNS</span>
+                <span>★ SUSTAINABLE FASHION</span>
+                <span>★ EXCLUSIVE DESIGNS</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dresses Section -->
+    <section id="dresses" class="products-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Collection</span>
+                <h2 class="section-title">Elegant <span class="gradient-text">Dresses</span></h2>
+                <p class="section-desc">From cocktail evenings to summer brunches — find your perfect silhouette</p>
+            </div>
+            <div class="products-grid" id="dresses-grid">
+                <!-- Products injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Showcase Banner -->
+    <section class="showcase-section">
+        <div class="showcase-container">
+            <div class="showcase-text">
+                <span class="section-tag">Interactive</span>
+                <h2 class="section-title">Experience Fashion<br>in <span class="gradient-text">3D</span></h2>
+                <p>Rotate, zoom, and explore our signature pieces in full 3D. A revolutionary way to shop online.</p>
+                <button class="btn btn-primary" id="rotate-model">Spin the Model ↻</button>
+            </div>
+            <div class="showcase-canvas-wrapper">
+                <canvas id="showcase-canvas"></canvas>
+                <div class="showcase-glow"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- T-Shirts Section -->
+    <section id="tshirts" class="products-section alt-bg">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Essentials</span>
+                <h2 class="section-title">Designer <span class="gradient-text">T-Shirts</span></h2>
+                <p class="section-desc">Premium cotton, bold designs — the staples your wardrobe needs</p>
+            </div>
+            <div class="products-grid" id="tshirts-grid">
+                <!-- Products injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="section-container">
+            <div class="features-grid">
+                <div class="feature-card" data-tilt>
+                    <div class="feature-icon">🚚</div>
+                    <h3>Free Shipping</h3>
+                    <p>Complimentary delivery on all orders above $50</p>
+                </div>
+                <div class="feature-card" data-tilt>
+                    <div class="feature-icon">↩️</div>
+                    <h3>Easy Returns</h3>
+                    <p>30-day hassle-free return policy</p>
+                </div>
+                <div class="feature-card" data-tilt>
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure Payment</h3>
+                    <p>SSL encrypted checkout for your safety</p>
+                </div>
+                <div class="feature-card" data-tilt>
+                    <div class="feature-icon">💎</div>
+                    <h3>Premium Quality</h3>
+                    <p>Handpicked fabrics, tailored to perfection</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="section-container">
+            <div class="about-grid">
+                <div class="about-visual">
+                    <div class="about-3d-wrapper">
+                        <canvas id="about-canvas"></canvas>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <span class="section-tag">Our Story</span>
+                    <h2 class="section-title">Redefining <span class="gradient-text">Fashion</span></h2>
+                    <p>At LUXE THREADS, we believe fashion is more than clothing — it's a statement. Born from a passion for premium fabrics and cutting-edge design, we curate collections that empower you to express your unique identity.</p>
+                    <p>Every stitch tells a story of craftsmanship, sustainability, and unapologetic style. Join 50,000+ fashion-forward individuals who've discovered the LUXE difference.</p>
+                    <div class="about-values">
+                        <div class="value-item"><span class="value-dot"></span> Sustainable Materials</div>
+                        <div class="value-item"><span class="value-dot"></span> Ethical Manufacturing</div>
+                        <div class="value-item"><span class="value-dot"></span> Size-Inclusive Range</div>
+                        <div class="value-item"><span class="value-dot"></span> Global Shipping</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter / Contact -->
+    <section id="contact" class="contact-section">
+        <div class="section-container">
+            <div class="contact-card">
+                <div class="contact-content">
+                    <span class="section-tag">Stay Connected</span>
+                    <h2 class="section-title">Get <span class="gradient-text">15% Off</span></h2>
+                    <p>Subscribe for exclusive deals, new arrivals, and style tips delivered straight to your inbox.</p>
+                    <form class="newsletter-form" id="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" id="email-input" placeholder="Enter your email" required>
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </div>
+                    </form>
+                    <p class="form-note">No spam, unsubscribe anytime. By subscribing you agree to our privacy policy.</p>
+                </div>
+                <div class="contact-3d">
+                    <canvas id="contact-canvas"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="section-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="nav-logo">
+                        <span class="logo-icon">✦</span>
+                        <span class="logo-text">LUXE<span class="logo-accent">THREADS</span></span>
+                    </a>
+                    <p>Premium fashion for the modern individual. Elevate your wardrobe with our curated collections.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" aria-label="Twitter" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Facebook" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#dresses">Dresses</a></li>
+                        <li><a href="#tshirts">T-Shirts</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Sale</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 LUXE THREADS. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-content">
+            <span class="toast-icon">✓</span>
+            <span class="toast-message" id="toast-message">Added to cart!</span>
+        </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="modal-overlay" id="quick-view-overlay">
+        <div class="modal" id="quick-view-modal">
+            <button class="modal-close" id="modal-close">✕</button>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modal-img" src="" alt="Product">
+                </div>
+                <div class="modal-info">
+                    <span class="modal-category" id="modal-category"></span>
+                    <h2 id="modal-name"></h2>
+                    <div class="modal-rating">★★★★★ <span>(128 reviews)</span></div>
+                    <p class="modal-price" id="modal-price"></p>
+                    <p class="modal-desc" id="modal-desc"></p>
+                    <div class="modal-sizes">
+                        <span class="size-label">Size:</span>
+                        <div class="size-options">
+                            <button class="size-btn">XS</button>
+                            <button class="size-btn active">S</button>
+                            <button class="size-btn">M</button>
+                            <button class="size-btn">L</button>
+                            <button class="size-btn">XL</button>
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="btn btn-primary btn-full" id="modal-add-cart">Add to Bag</button>
+                        <button class="btn btn-outline btn-wishlist">♡</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
